@@ -1,0 +1,7 @@
+dbt_enade:
+  outputs:
+    dev:
+      type: duckdb
+      path: ../data/gold/enade_gold.duckdb
+      threads: 4
+  target: dev

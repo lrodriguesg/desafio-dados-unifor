@@ -1,0 +1,20 @@
+# Ambientes Virtuais
+venv/
+env/
+.env
+
+# Pastas de Dados (Não subir para o Git)
+data/
+
+# Arquivos gerados pelo Python e dbt
+__pycache__/
+*.pyc
+logs/
+target/
+dbt_packages/
+.duckdb/
+*.duckdb
+*.db
+
+# Arquivos do OS
+.DS_Store

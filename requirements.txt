@@ -1,0 +1,6 @@
+pandas==2.2.1
+duckdb==0.10.1
+dbt-duckdb==1.7.3
+pandera==0.18.3
+streamlit==1.32.2
+requests==2.31.0
