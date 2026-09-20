@@ -28,4 +28,4 @@ dbt_enade/dbt_packages/
 dbt_enade/.user.yml
 .duckdb/
 *.duckdb
-*.db
+*.db.vscode/
