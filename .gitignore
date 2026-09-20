@@ -18,3 +18,14 @@ dbt_packages/
 
 # Arquivos do OS
 .DS_Store
+
+# Arquivos gerados pelo Python e dbt
+__pycache__/
+*.pyc
+dbt_enade/logs/
+dbt_enade/target/
+dbt_enade/dbt_packages/
+dbt_enade/.user.yml
+.duckdb/
+*.duckdb
+*.db
