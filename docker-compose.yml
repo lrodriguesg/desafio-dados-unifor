@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  pipeline:
+    build: .
+    container_name: unifor_pipeline
+    # Executa a ingestão, a silver (data quality) e a gold (dbt) em sequência
+    command: >
+      bash -c "python src/ingest_enade.py && 
+               python src/ingest_emec.py && 
+               python src/process_silver.py && 
+               cd dbt_enade && dbt clean && dbt run"
+    volumes:
+      - ./data:/app/data
+
+  dashboard:
+    build: .
+    container_name: unifor_dashboard
+    command: streamlit run app/main.py --server.port=8501 --server.address=0.0.0.0
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data:/app/data
+    depends_on:
+      pipeline:
+        condition: service_completed_successfully
