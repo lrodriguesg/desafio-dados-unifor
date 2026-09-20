@@ -74,25 +74,29 @@ A modelagem dimensional foi construída via `dbt` e estruturada em um formato St
 Todas as respostas estão detalhadas dinamicamente no painel Streamlit. Abaixo, o resumo executivo:
 
 ### 1) A Unifor está na base do ENADE?
-
 **Sim.** Através do cruzamento com o Censo da Educação Superior, foi validado que o código da Instituição é **555**. A Unifor possui **17 cursos avaliados** no ciclo de 2023, todos na modalidade **Presencial**.
 
-### 2) A nota geral (NT_GER) difere entre as modalidades (Presencial x EaD)?
+> ![alt text](docs/assets/image.png)
 
-Como a Unifor ofertou apenas cursos Presenciais neste ciclo, adaptei a arquitetura para trazer a **Média Nacional** das mesmas áreas para comparação. Utilizando a média ponderada, a Unifor obteve **52.91** no Presencial.
+### 2) A nota geral (NT_GER) difere entre as modalidades (Presencial x EaD)?
+Como a Unifor ofertou apenas cursos Presenciais neste ciclo, adaptei a arquitetura para trazer a **Média Nacional** das mesmas áreas para comparação. Utilizando a média ponderada, a Unifor obteve **52.91** no Presencial. 
+
+> ![alt text](docs/assets/image-1.png)
 
 ### 3) Quais os Top 10 Cursos da Instituição?
-
 A liderança de notas da Unifor encontra-se na área da saúde. O primeiro colocado é **Medicina (68.89)**, seguido por **Enfermagem (60.98)** e **Arquitetura e Urbanismo (58.92)**.
 
-### 🌟 Bônus 1: Melhor IES do Brasil nas áreas da Unifor
+> ![alt text](docs/assets/image-2.png)
 
+### 🌟 Bônus 1: Melhor IES do Brasil nas áreas da Unifor
 Utilizando *Window Functions* para calcular o *gap*, nota-se, por exemplo, que em Medicina a Unifor está a apenas **8.84 pontos** da líder nacional (Faculdade de Medicina de São José do Rio Preto - 77.73).
 
-### 🌟 Bônus 2: Relação Renda vs Desempenho
+> ![alt text](docs/assets/image-3.png)
 
+### 🌟 Bônus 2: Relação Renda vs Desempenho
 Calculando a "Moda" (renda predominante do curso), verificou-se uma quebra de paradigma: o melhor desempenho médio foi alcançado pelos cursos de faixa **B (1,5 a 3 salários mínimos)** com nota 56.46, embora o maior volume de alunos concentre-se na faixa F (10 a 30 salários).
 
+> ![alt text](docs/assets/image-4.png)
 ---
 
 ## ⚠️ Limitações Conhecidas e Melhorias Futuras
