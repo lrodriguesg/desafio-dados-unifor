@@ -1,0 +1,18 @@
+venv/
+env/
+__pycache__/
+.env
+
+# Ignora cache e logs do dbt
+dbt_enade/target/
+dbt_enade/logs/
+dbt_enade/dbt_packages/
+dbt_enade/.user.yml
+
+# Ignora a pasta data (ela será montada via volume no docker-compose)
+data/
+
+# Ignora bancos temporários
+.duckdb/
+*.duckdb
+*.db
