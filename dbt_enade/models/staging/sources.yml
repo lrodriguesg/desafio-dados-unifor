@@ -10,11 +10,13 @@ sources:
       - name: silver_notas
         meta:
           external_location: "../data/silver/silver_notas.parquet"
+      - name: silver_renda
+        meta:
+          external_location: "../data/silver/silver_renda.parquet"
           
   - name: bronze
     description: "Camada Bronze com dados externos de mapeamento"
     tables:
       - name: mapeamento_ies
         meta:
-          # O DuckDB possui a função read_csv_auto para lidar com o CSV
           external_location: "read_csv_auto('../data/bronze/emec/mapeamento_ies.csv')"
