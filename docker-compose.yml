@@ -1,14 +1,12 @@
-version: '3.8'
-
 services:
   pipeline:
     build: .
     container_name: unifor_pipeline
-    # Executa a ingestão, a silver (data quality) e a gold (dbt) em sequência
     command: >
       bash -c "python src/ingest_enade.py && 
                python src/ingest_emec.py && 
                python src/process_silver.py && 
+               mkdir -p data/gold && 
                cd dbt_enade && dbt clean && dbt run"
     volumes:
       - ./data:/app/data
