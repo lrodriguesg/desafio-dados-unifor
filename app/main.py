@@ -34,8 +34,9 @@ with tab1:
     st.header("A Unifor está no ENADE 2023?")
     st.success("**Sim.** O código da instituição é **555**. Esta informação foi validada ativamente mediante cruzamento com a base de dados pública do portal Cadastro e-MEC.")
     
-    # Consulta a view gerada pelo dbt
+    # Consulta a view gerada pelo dbt e padroniza as colunas para minúsculo
     df_q1 = con.execute("SELECT * FROM q1_unifor_overview").df()
+    df_q1.columns = df_q1.columns.str.lower()
     
     if not df_q1.empty:
         total_cursos = df_q1['qtd_cursos'].sum()
@@ -56,6 +57,7 @@ with tab2:
     st.header("A nota geral (NT_GER) difere entre as modalidades?")
     
     df_q2 = con.execute("SELECT * FROM q2_presencial_vs_ead").df()
+    df_q2.columns = df_q2.columns.str.lower()
     
     if not df_q2.empty:
         col1, col2 = st.columns([1, 1])
@@ -76,6 +78,7 @@ with tab3:
     st.header("Top 10 Cursos com Maior Nota Geral Média (NT_GER)")
     
     df_q3 = con.execute("SELECT * FROM q3_top_10_unifor").df()
+    df_q3.columns = df_q3.columns.str.lower()
     
     if not df_q3.empty:
         st.dataframe(df_q3, use_container_width=True, hide_index=True)
@@ -88,7 +91,7 @@ with tab3:
         ### Conclusão Analítica
         O curso no topo do ranking do ciclo 2023 é **{top_1_curso}** (Nota: {top_1_nota}). 
         
-        Conforme a expectativa da coordenação acadêmica, é comum observar que cursos tradicionais, especialmente da área da saúde ou engenharias consolidadas, performem melhor devido ao perfil do ingressante e à estrutura histórica do corpo docente. *(Você pode complementar esta análise no README com base nos resultados reais que aparecerem na sua tela).*
+        Conforme a expectativa da coordenação acadêmica, é comum observar que cursos tradicionais, especialmente da área da saúde ou engenharias consolidadas, performem melhor devido ao perfil do ingressante e à estrutura histórica do corpo docente.
         """)
     else:
         st.warning("Nenhum dado encontrado para o ranking.")
